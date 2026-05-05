@@ -25,7 +25,7 @@ Matrix addMatrix(const Matrix& A, const Matrix& B) {
 	return C;
 }
 
-Matrix substractMatrix( const Matrix& A, const Matrix& B){
+Matrix subtractMatrix( const Matrix& A, const Matrix& B){
 	int n = A.size();
 	Matrix C(n, std::vector<int>(n));
 
