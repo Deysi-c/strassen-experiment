@@ -2,6 +2,7 @@
 #include <vector>
 #include <chrono>
 #include <cstdlib>
+#include <algorithm>
 
 using namespace std;
 using namespace chrono;
@@ -15,7 +16,7 @@ extern Matrix strassen(const Matrix&, const Matrix&);
 double median(vector<double>& v){
 	int n = v.size();
 	if(n%2 == 0)
-		return (v[n/2 - 1] + v[n/2]) / 2;
+		return (v[n/2 - 1] + v[n/2]) / 2.0;
 	else
 		return v[n/2];
 }
