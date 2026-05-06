@@ -21,6 +21,12 @@ double median(vector<double>& v){
 		return v[n/2];
 }
 
+void warmup(int n){
+	Matrix A = generateMatrix(n);
+	Matrix B = generateMatrix(n);
+	multiplyStandard(A, B);
+}
+
 double measureStandard(int n) {
     Matrix A = generateMatrix(n);
     Matrix B = generateMatrix(n);
@@ -48,21 +54,22 @@ int main() {
 	vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 
 	for (int n : sizes) {
-        vector<double> t1, t2;
-        int runs = 5;
-	if (n <= 32) runs = 50;
-	else if (n <= 128) runs = 20;
-	else if (n <= 512) runs = 10;
+		warmup(n);
+        	vector<double> t1, t2;
+       		int runs = 5;
+		if (n <= 32) runs = 50;
+		else if (n <= 128) runs = 20;
+		else if (n <= 512) runs = 10;
 
  		for (int i = 0; i < runs; i++) {
             		t1.push_back(measureStandard(n));
             		t2.push_back(measureStrassen(n));
         	}
    
-	cout << n <<" "
-		<< median(t1) << " "
-		<<median(t2)
-		<<endl;
+		cout << n <<" "
+			<< median(t1) << " "
+			<<median(t2)
+			<<endl;
 	}
 	return 0;
 }
