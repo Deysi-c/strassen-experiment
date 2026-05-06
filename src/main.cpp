@@ -8,7 +8,7 @@ using namespace std;
 using namespace chrono;
 
 using Matrix = vector<vector<int>>;
-
+extern int STRASSEN_BASE;
 extern Matrix generateMatrix(int n);
 extern Matrix multiplyStandard(const Matrix&, const Matrix&);
 extern Matrix strassen(const Matrix&, const Matrix&);

@@ -3,6 +3,8 @@
 
 using Matrix = std::vector<std::vector<int>>;
 
+int STRASSEN_BASE = 64;
+
 extern Matrix addMatrix(const Matrix&, const Matrix&);
 extern Matrix subtractMatrix(const Matrix&, const Matrix&);
 extern Matrix multiplyStandard(const Matrix&, const Matrix&);
@@ -25,7 +27,7 @@ void joinMatrix(Matrix& C, const Matrix& P, int row, int col) {
 Matrix strassen(const Matrix& A, const Matrix& B) {
 	int n = A.size();
 
-	if(n<=2)
+	if(n<= STRASSEN_BASE)
 		return multiplyStandard(A, B);
 	int k = n/2;
 
