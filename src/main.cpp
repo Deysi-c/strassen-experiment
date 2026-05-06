@@ -3,6 +3,7 @@
 #include <chrono>
 #include <cstdlib>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 using namespace chrono;
@@ -51,6 +52,7 @@ double measureStrassen(int n) {
 
 int main() {
 	srand(time(0));
+	ofstream outfile("data/results.txt");
 	vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 
 	for (int n : sizes) {
@@ -68,8 +70,12 @@ int main() {
    
 		cout << n <<" "
 			<< median(t1) << " "
-			<<median(t2)
+			<< median(t2)
 			<<endl;
+		outfile << n << " "
+			<< median(t1) << " "
+			<< median(t2)
+			<< "\n";
 	}
 	return 0;
 }
