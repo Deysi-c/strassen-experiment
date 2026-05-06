@@ -49,7 +49,7 @@ int main() {
 
 	for (int n : sizes) {
         vector<double> t1, t2;
-        int runs = 5;
+        int runs = 20;
 
  		for (int i = 0; i < runs; i++) {
             		t1.push_back(measureStandard(n));
