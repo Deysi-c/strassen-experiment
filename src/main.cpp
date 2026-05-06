@@ -45,11 +45,14 @@ double measureStrassen(int n) {
 
 int main() {
 	srand(time(0));
-	vector<int> sizes = {2, 4, 8, 16, 32, 64, 128};
+	vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 
 	for (int n : sizes) {
         vector<double> t1, t2;
-        int runs = 20;
+        int runs = 5;
+	if (n <= 32) runs = 50;
+	else if (n <= 128) runs = 20;
+	else if (n <= 512) runs = 10;
 
  		for (int i = 0; i < runs; i++) {
             		t1.push_back(measureStandard(n));
